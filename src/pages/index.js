@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import Image from '@/components/Image';
+import dynamic from 'next/dynamic';
+
+const Image = dynamic(() => import('@/components/Image'));
 
 import styles from '@/styles/_pages/Home.module.scss';
 
