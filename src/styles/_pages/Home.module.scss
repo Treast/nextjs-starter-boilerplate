@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.code {
+  padding: 15px 20px;
+  border-radius: 6px;
+  background-color: #263238;
+
+  code {
+    color: #89ddff;
+    font-size: 18px;
+
+    span {
+      color: #ffcb6b;
+
+      &:first-child {
+        color: #c792ea !important;
+      }
+    }
+  }
+}
