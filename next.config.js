@@ -3,12 +3,14 @@ const optimizedImages = require('next-optimized-images');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const baseUrl = '/nextjs-starter-boilerplate';
+
 module.exports = withPlugins([
   [
     optimizedImages,
     {
-      basePath: isProd ? '/nextjs-starter-boilerplate' : '',
-      assetPrefix: isProd ? '/nextjs-starter-boilerplate' : '',
+      basePath: isProd ? baseUrl : '',
+      assetPrefix: isProd ? baseUrl : '',
     },
   ],
 ]);

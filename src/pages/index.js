@@ -8,7 +8,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>NextJS - Starter Boilerplate</title>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/nextjs-starter-boilerplate/favicon.ico' />
       </Head>
       <div className={styles.logo}>
         <Image src='Logo.jpg' />

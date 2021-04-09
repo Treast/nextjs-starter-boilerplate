@@ -30,7 +30,7 @@ export default function Image({ src, webp = false, lqip = false }) {
 
   return (
     <picture className={styles.container}>
-      <source type='image/webp' src={requireWebpImage(path)} />
+      <source type='image/webp' srcSet={requireWebpImage(path)} />
       <source srcSet={requireResizeImage(path).srcSet} />
       <img src={requireImage(`${path}`)} ref={refImage} alt='' />
       {!isLoaded && <img src={requireLQIPImage(`${path}`)} className={styles.placeholder} alt='' />}
