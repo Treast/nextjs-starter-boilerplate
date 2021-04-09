@@ -16,7 +16,7 @@ export default function Home() {
       <h1>NextJS Boilerplate</h1>
       <pre className={styles.code}>
         <code>
-          <span>npx</span> create-next-app <span>my-project</span> --example <span>https://github.com/Treast/nextjs-starter-boilerplate.git</span>
+          <span>npx</span> create-next-app <span>my-project</span> --example <span>https://github.com/Treast/nextjs-starter-boilerplate</span>
         </code>
       </pre>
     </div>
