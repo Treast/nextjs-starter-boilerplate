@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
+import Img from 'react-optimized-image';
 
-const Image = dynamic(() => import('@/components/Image'));
+import Logo from '@/images/Logo.jpg';
 
 import styles from '@/styles/_pages/Home.module.scss';
 
@@ -13,7 +13,7 @@ export default function Home() {
         <link rel='icon' href='/nextjs-starter-boilerplate/favicon.ico' />
       </Head>
       <div className={styles.logo}>
-        <Image src='Logo.jpg' />
+        <Img src={Logo} sizes={[80]} alt="White geometric shapes on a black background, representing Treast's logo. Inspired by the game Journey." />
       </div>
       <h1>NextJS Boilerplate</h1>
       <pre className={styles.code}>

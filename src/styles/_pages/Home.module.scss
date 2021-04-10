@@ -34,6 +34,13 @@
   height: 80px;
   width: 80px;
 
+  picture,
+  picture img {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
   img {
     border-radius: 15px;
   }
