@@ -17,32 +17,32 @@ module.exports = withPlugins([optimizedImages, withBundleAnalyzer], {
   basePath: isProd ? baseUrl : '',
   assetPrefix: isProd ? baseUrl : '',
   webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      });
+    // if (!dev && !isServer) {}
 
-      // Rewrite all classes to shorter ones
-      config.module.rules[1].oneOf.forEach((moduleLoader, i) => {
-        Array.isArray(moduleLoader.use) &&
-          moduleLoader.use.forEach((l) => {
-            if (l.loader.includes('\\css-loader') && !l.loader.includes('postcss-loader')) {
-              l.options = {
-                ...l.options,
-                modules: l.options.modules
-                  ? {
-                      ...deleteAfield(l.options.modules, 'getLocalIdent'),
-                      localIdentName: '[sha1:hash:hex:5]',
-                    }
-                  : l.options.module,
-              };
-            }
-          });
-      });
-    }
+    // Replace React with Preact only in client production build
+    Object.assign(config.resolve.alias, {
+      react: 'preact/compat',
+      'react-dom/test-utils': 'preact/test-utils',
+      'react-dom': 'preact/compat',
+    });
+
+    // Rewrite all classes to shorter ones
+    config.module.rules[1].oneOf.forEach((moduleLoader, i) => {
+      Array.isArray(moduleLoader.use) &&
+        moduleLoader.use.forEach((l) => {
+          if (l.loader.includes('\\css-loader') && !l.loader.includes('postcss-loader')) {
+            l.options = {
+              ...l.options,
+              modules: l.options.modules
+                ? {
+                    ...deleteAfield(l.options.modules, 'getLocalIdent'),
+                    localIdentName: '[sha1:hash:hex:5]',
+                  }
+                : l.options.module,
+            };
+          }
+        });
+    });
 
     return config;
   },
