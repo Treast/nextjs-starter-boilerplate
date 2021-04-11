@@ -17,7 +17,6 @@ module.exports = withPlugins([optimizedImages, withBundleAnalyzer], {
   basePath: isProd ? baseUrl : '',
   assetPrefix: isProd ? baseUrl : '',
   webpack: (config, { dev, isServer }) => {
-    console.log('Logs config: ', dev, isServer);
     if (!dev) {
       // Replace React with Preact only in client production build
       Object.assign(config.resolve.alias, {
@@ -27,7 +26,6 @@ module.exports = withPlugins([optimizedImages, withBundleAnalyzer], {
       });
 
       // Rewrite all classes to shorter ones
-      console.log(config.module.rules[1].oneOf);
       config.module.rules[1].oneOf.forEach((moduleLoader, i) => {
         Array.isArray(moduleLoader.use) &&
           moduleLoader.use.forEach((l) => {
